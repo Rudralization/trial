@@ -1,4 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // --- smooth reveal on scroll ---
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  reveals.forEach((el) => observer.observe(el));
+
+  // --- stats counter ---
+  const counters = document.querySelectorAll('.num');
+
+  const countObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = +el.dataset.to;
+          let current = 0;
+          const step = Math.ceil(target / 60);
+          const interval = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(interval);
+            }
+            el.textContent = current;
+          }, 30);
+          countObserver.unobserve(el);
+        }
+      });
+    },
+    { threshold: 0.8 }
+  );
+
+  counters.forEach((el) => countObserver.observe(el));
+
+  // --- custom cursor ---
+  const cursor = document.querySelector('.cursor');
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  document.querySelectorAll('a, button, .project-card').forEach((el) => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+
+  // --- contact form ---
   const form = document.getElementById('contact-form');
 
   form.addEventListener('submit', (e) => {
@@ -13,22 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    if (!email.includes('@')) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       alert('Please enter a valid email address.');
       return;
     }
 
-    alert(`Thank you, ${name}! Your message has been sent.`);
+    alert(`Thanks, ${name}! I'll get back to you soon.`);
     form.reset();
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      e.preventDefault();
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
   });
 });

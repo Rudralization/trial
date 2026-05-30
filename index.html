@@ -3,64 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Rudra | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="cursor"></div>
+
   <header>
     <nav>
-      <h1 class="logo">Portfolio</h1>
+      <span class="logo">&lt;R /&gt;</span>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#projects">Work</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
 
   <section id="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h2>Hi, I'm <span class="highlight">Rudra</span></h2>
-      <p>A passionate web developer building modern digital experiences.</p>
-      <a href="#projects" class="btn">View My Work</a>
+      <p class="hero-sub subtle-fade">Hello, I'm</p>
+      <h1 class="hero-title reveal">Rudra</h1>
+      <p class="hero-desc reveal">I craft <span class="gradient-text">digital experiences</span> that live at the intersection of design &amp; performance.</p>
+      <a href="#projects" class="btn glow">See my work</a>
     </div>
   </section>
 
   <section id="about">
-    <h2>About Me</h2>
-    <p>I'm a web developer with a love for clean code and creative design. I build responsive, user-friendly websites and applications.</p>
+    <h2 class="section-title reveal">About</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a web developer who turns complex problems into simple, beautiful interfaces. I build things that work fast, look good, and feel right.</p>
+        <div class="tech-list">
+          <span>React</span><span>Node</span><span>TypeScript</span><span>Tailwind</span><span>Figma</span>
+        </div>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat"><span class="num" data-to="5">0</span><span class="label">Years exp</span></div>
+        <div class="stat"><span class="num" data-to="20">0</span><span class="label">Projects</span></div>
+        <div class="stat"><span class="num" data-to="12">0</span><span class="label">Clients</span></div>
+      </div>
+    </div>
   </section>
 
   <section id="projects">
-    <h2>Projects</h2>
+    <h2 class="section-title reveal">Selected Work</h2>
     <div class="project-grid">
-      <div class="project-card">
-        <h3>Project One</h3>
-        <p>A web app that solves real-world problems with an intuitive interface.</p>
+      <div class="project-card reveal">
+        <div class="card-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+        <div class="card-body">
+          <h3>Orbit Dashboard</h3>
+          <p>Real-time analytics platform with interactive data visualizations.</p>
+          <div class="card-tags"><span>React</span><span>D3</span><span>Node</span></div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Project Two</h3>
-        <p>A responsive dashboard built with modern tools and best practices.</p>
+      <div class="project-card reveal">
+        <div class="card-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+        <div class="card-body">
+          <h3>EcoTrack</h3>
+          <p>Sustainability tracker helping companies monitor their carbon footprint.</p>
+          <div class="card-tags"><span>Next.js</span><span>Prisma</span><span>Postgres</span></div>
+        </div>
       </div>
-      <div class="project-card">
-        <h3>Project Three</h3>
-        <p>An open-source library that helps developers ship faster.</p>
+      <div class="project-card reveal">
+        <div class="card-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+        <div class="card-body">
+          <h3>Mono UI</h3>
+          <p>Open-source component library with accessible, production-ready primitives.</p>
+          <div class="card-tags"><span>Storybook</span><span>CSS</span><span>A11y</span></div>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Get In Touch</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required>
-      <input type="email" id="email" placeholder="Your Email" required>
-      <textarea id="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
+    <h2 class="section-title reveal">Let's talk</h2>
+    <p class="contact-sub reveal">Have a project in mind? Drop me a message.</p>
+    <form id="contact-form" class="reveal">
+      <div class="input-group">
+        <input type="text" id="name" required>
+        <label>Name</label>
+      </div>
+      <div class="input-group">
+        <input type="email" id="email" required>
+        <label>Email</label>
+      </div>
+      <div class="input-group">
+        <textarea id="message" required></textarea>
+        <label>Message</label>
+      </div>
+      <button type="submit" class="btn glow">Send</button>
     </form>
   </section>
 
   <footer>
-    <p>&copy; 2026 Rudra. All rights reserved.</p>
+    <p>&copy; 2026 Rudra &mdash; Built with &hearts;</p>
   </footer>
 
   <script src="script.js"></script>
